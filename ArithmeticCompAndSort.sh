@@ -36,10 +36,24 @@ operations[1]=$operation2
 operations[2]=$operation3
 operations[3]=$operation4
 
-   printf "Descending order:" 
-for (( index=${#operations[@]}; index>=0; index-- ))
+for (( index=0; index<${#operations[@]}; index++ ))
 do
-	printf "${operations[$index]} \t"
+   operationsArr[$index]="${operations[$index]}"
 done
-	printf "\n"
+
+for (( index=0; index<${#operationsArr[@]}; index++ ))
+do
+   for(( index2=$(( $index + 1 )) ; index2<${#operationsArr[@]}; index2++ ))
+   do
+      if [ ${operationsArr[$index]} -lt ${operationsArr[$index2]} ]
+         then
+            temp=${operationsArr[$index]}
+            operationsArr[$index]=${operationsArr[$index2]}
+            operationsArr[$index2]=$temp
+      fi
+   done
+done
+
+echo "Descending Order:" "${operationsArr[@]}"
+
 
