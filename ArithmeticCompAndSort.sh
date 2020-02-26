@@ -5,6 +5,7 @@
 #VARIABLES
 operation1
 operation2
+operation3
 
 #TAKING THREE INPUTS
 printf "Enter the value of a\n"
@@ -16,6 +17,9 @@ read c
 
 operation1=$(( $a+$b*$c ))
 operation2=$(( $a*$b+$c ))
+operation3=$(( $c+$a/$b ))
 
 printf "Operation1=$operation1\n"
 printf "Operation2=$operation2\n"
+printf "Operation3=$operation3\n"
+
