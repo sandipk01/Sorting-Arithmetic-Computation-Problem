@@ -4,6 +4,7 @@
 
 #VARIABLES
 declare -A operations
+declare -a operationsArray
 operation1=0
 operation2=0
 operation3=0
@@ -35,5 +36,11 @@ operations[1]=$operation2
 operations[2]=$operation3
 operations[3]=$operation4
 
-echo ${!operations[@]}
+for (( index=0; index<${#operations[@]}; index++ ))
+do
+	operationsArr[$index]="${operations[$index]}"
+done
+
+echo "READING FROM DICTIONARY:" "${operations[@]}"
+echo "READING FROM ARRAY:" "${operations[@]}"
 
