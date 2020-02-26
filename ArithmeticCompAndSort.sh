@@ -2,6 +2,9 @@
 
 #Write program to take three inputs – a, b & c
 
+#VARIABLES
+operation1
+
 #TAKING THREE INPUTS
 printf "Enter the value of a\n"
 read a
@@ -10,4 +13,6 @@ read b
 printf "Enter the value of c\n"
 read c
 
-printf "a=$a b=$b c=$c \n"
+operation1=$(( $a+$b*$c ))
+
+printf "Operation1=$operation1"
