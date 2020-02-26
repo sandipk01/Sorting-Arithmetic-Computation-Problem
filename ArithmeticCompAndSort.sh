@@ -36,11 +36,10 @@ operations[1]=$operation2
 operations[2]=$operation3
 operations[3]=$operation4
 
-for (( index=0; index<${#operations[@]}; index++ ))
+   printf "Descending order:" 
+for (( index=${#operations[@]}; index>=0; index-- ))
 do
-	operationsArr[$index]="${operations[$index]}"
+	printf "${operations[$index]} \t"
 done
-
-echo "READING FROM DICTIONARY:" "${operations[@]}"
-echo "READING FROM ARRAY:" "${operations[@]}"
+	printf "\n"
 
