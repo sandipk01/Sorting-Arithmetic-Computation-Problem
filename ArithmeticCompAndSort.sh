@@ -38,8 +38,20 @@ operations[3]=$operation4
 
 for (( index=0; index<${#operations[@]}; index++ ))
 do
-	operationsArr[$index]="${operations[$index]}"
+   operationsArr[$index]="${operations[$index]}"
 done
 
-echo "READING FROM DICTIONARY:" "${operations[@]}"
-echo "READING FROM ARRAY:" "${operations[@]}"
+for (( index=0; index<${#operationsArr[@]}; index++ ))
+do
+   for(( index2=$(( $index + 1 )) ; index2<${#operationsArr[@]}; index2++ ))
+   do
+      if [ ${operationsArr[$index]} -lt ${operationsArr[$index2]} ]
+         then
+            temp=${operationsArr[$index]}
+            operationsArr[$index]=${operationsArr[$index2]}
+            operationsArr[$index2]=$temp
+      fi
+   done
+done
+
+echo "Descending Order:" "${operationsArr[@]}"
